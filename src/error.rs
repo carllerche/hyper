@@ -21,6 +21,8 @@ struct ErrorImpl {
     cause: Option<Cause>,
 }
 
+impl ::std::marker::Unpin for ErrorImpl { }
+
 #[derive(Debug, PartialEq)]
 pub(crate) enum Kind {
     Parse(Parse),

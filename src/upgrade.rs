@@ -29,6 +29,8 @@ pub struct Upgraded {
     io: Rewind<Box<Io + Send>>,
 }
 
+impl ::std::marker::Unpin for Upgraded { }
+
 /// A future for a possible HTTP upgrade.
 ///
 /// If no upgrade was available, or it doesn't succeed, yields an `Error`.
