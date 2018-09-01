@@ -41,6 +41,8 @@ enum Kind {
     Wrapped(Box<Stream<Item = Chunk, Error = Box<::std::error::Error + Send + Sync>> + Send>),
 }
 
+impl ::std::marker::Unpin for Kind {}
+
 struct Extra {
     /// Allow the client to pass a future to delay the `Body` from returning
     /// EOF. This allows the `Client` to try to put the idle connection
